@@ -39,6 +39,14 @@ st.image("https://npr.brightspotcdn.com/dims4/default/720110d/2147483647/strip/t
 st.sidebar.title("Please Select a Method")
 selected_model = st.sidebar.selectbox("Choose a Method", ['LogisticRegression', 'SVM', 'KNN', 'RandomForest', 'AdaBoost', 'NaiveBayes'])
 
+positive_sample = "I absolutely love this product! It fits perfectly and the quality is amazing."
+negative_sample = "This is the worst product I've ever purchased. It's cheaply made and doesn't work as advertised."
+
+# Sample Buttons
+if st.button("Sample Reviews"):
+    st.write("Positive: The fit is perfect and the material feels luxurious. A must-have for any wardrobe")
+    st.write("Negative: The dress came, but the color is faded and the pattern is small, it tore immediately")
+
 # Text Area
 user_input = st.text_area("Please enter a review without any punctual or number:", height=4)
 
