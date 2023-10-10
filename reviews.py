@@ -37,7 +37,7 @@ st.image("https://npr.brightspotcdn.com/dims4/default/720110d/2147483647/strip/t
 
 # Side Bar
 st.sidebar.title("Please Select a Method")
-selected_model = st.sidebar.selectbox("Choose a Method", ['NaiveBayes', 'LogisticRegression', 'SVM', 'KNN', 'RandomForest', 'AdaBoost'])
+selected_model = st.sidebar.selectbox("Choose a Method", ['LogisticRegression', 'SVM', 'KNN', 'RandomForest', 'AdaBoost', 'NaiveBayes'])
 
 # Text Area
 user_input = st.text_area("Please enter a review without any punctual or number:", height=4)
@@ -114,32 +114,6 @@ if show_wordcloud:
     plt.imshow(recommended, interpolation="bilinear")
     plt.axis("off")
     st.pyplot(plt)
-    
-    
-    FreqOfWords = data_recommended.str.split(expand=True).stack().value_counts()
-    FreqOfWords_top200 = FreqOfWords[:200]
-    
-    
-    data = {
-    "Words": FreqOfWords_top200.index,
-    "Frequency": FreqOfWords_top200.values
-    }
-
-    df = pd.DataFrame(data)
-
-    # Treemap grafiği oluştur
-    fig = px.treemap(df, path=["Words"], values="Frequency")
-
-    fig.update_layout(
-        title_text='Top Frequent 200 Words in the Recommended Reviews',
-        title_x=0.5,
-        title_font=dict(size=20)
-    )
-
-    fig.update_traces(textinfo="label+value")
-
-    # Treemap grafiğini görüntüle
-    st.plotly_chart(fig)
 
     
     st.subheader("WordCloud of the Not Recommended Reviews")
@@ -153,28 +127,3 @@ if show_wordcloud:
     plt.imshow(notrecommended, interpolation="bilinear")
     plt.axis("off")
     st.pyplot(plt)
-    
-    
-    FreqOfWords = not_recommended.str.split(expand=True).stack().value_counts()
-    FreqOfWords_top200 = FreqOfWords[:200]
-    
-    data = {
-    "Words": FreqOfWords_top200.index,
-    "Frequency": FreqOfWords_top200.values
-    }
-
-    df2 = pd.DataFrame(data)
-
-    # Treemap grafiği oluştur
-    fig = px.treemap(df2, path=["Words"], values="Frequency")
-
-    fig.update_layout(
-        title_text='Top Frequent 200 Words in the Not Recommended Reviews',
-        title_x=0.5,
-        title_font=dict(size=20)
-    )
-
-    fig.update_traces(textinfo="label+value")
-
-    # Treemap grafiğini görüntüle
-    st.plotly_chart(fig)
