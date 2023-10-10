@@ -32,8 +32,8 @@ nltk.download('punkt')
 
 
 #Baslik ekliyoruz
-#st.markdown('<h2 style="font-size:1.5em;">Sentiment Analysis for Women Clothes Review</h2>', unsafe_allow_html=True)
 st.markdown('<p style="background-color: #96e627; color: black; font-size: 30px; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">Sentiment Analysis for Women Clothes Review</p>', unsafe_allow_html=True)
+st.image("https://npr.brightspotcdn.com/dims4/default/720110d/2147483647/strip/true/crop/900x534+0+0/resize/1760x1044!/format/webp/quality/90/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F03%2F9c%2F3a2e47fc412a857e60875267fc30%2Fclothing-istock-vectorikart-2021-0730.jpg", use_column_width=True)
 
 # Side Bar
 st.sidebar.title("Please Select a Method")
@@ -68,7 +68,7 @@ except FileNotFoundError:
     st.write(f"Model {model_filename} could not be found.")
 
 st.sidebar.title("Dataset Information")
-st.sidebar.info("The dataset used in this study contains 23486 rows and 10 feature variables. After data preprocessing, 6 models were built with NLP on 22628 comments and each comment's tag.")
+st.sidebar.info("The dataset used in this study contains 23486 rows and 10 feature variables. After preprocessing the data, 6 models were created with NLP on 22628 comments and each comment's tag. For each model, recommendation suggestions can be obtained from comments with an average success rate of 90 percent.")
 
 
 # Submit Button
